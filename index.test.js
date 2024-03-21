@@ -49,7 +49,8 @@ describe("Band, Musician, and Song Models", () => {
     // TODO - test deleting a band
     const band = await Band.create({ name: "Nirvana", genre: "rock" });
     await band.destroy();
-    expect(band).toBe(null);
+    const foundBand = await Song.findByPk(band.id);
+    expect(foundBand).toBe(null);
   });
 
   test("can delete a Musician", async () => {
@@ -59,7 +60,8 @@ describe("Band, Musician, and Song Models", () => {
       instrument: "guitar",
     });
     await musician.destroy();
-    expect(musician).toBe(null);
+    const foundMusician = await Song.findByPk(musician.id);
+    expect(foundMusician).toBe(null);
   });
 
   test("can create a Song", async () => {
@@ -86,13 +88,13 @@ describe("Band, Musician, and Song Models", () => {
   });
 
   test("can delete a Song", async () => {
-    // TODO - test deleting a song
     const song = await Song.create({
       title: "Smells Like Teen Spirit",
       year: 1991,
       length: 343,
     });
     await song.destroy();
-    expect(song).toBe(null);
+    const foundSong = await Song.findByPk(song.id);
+    expect(foundSong).toBe(null);
   });
 });

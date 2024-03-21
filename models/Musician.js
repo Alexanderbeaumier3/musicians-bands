@@ -1,17 +1,17 @@
-const {Sequelize, sequelize} = require('../db');
+const { Sequelize, sequelize } = require("../db");
 
 // TODO - define the Musician model
-let Musician = sequelize.define('musician', {
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    instrument: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
-}); 
+let Musician = sequelize.define("musician", {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  instrument: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+});
 
 module.exports = {
-    Musician
+  Musician,
 };
